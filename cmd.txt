@@ -1,2 +1,5 @@
 // generate component 
-ng generate component Home --standalone --inline-template --skip-te
+ng generate component Home --standalone --inline-template --skip-tests
+
+// generate interface 
+ng generate interface housinglocation
