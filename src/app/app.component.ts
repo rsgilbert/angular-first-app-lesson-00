@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
-
+import { RouterModule } from '@angular/router'
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [HomeComponent],
-  template: `
+    selector: 'app-root',
+    standalone: true,
+    imports: [HomeComponent, RouterModule],
+    template: `
   <main>
-    <header>
-        <img class='brand-logo' src='/assets/logo.svg' alt='logo' >
-    </header>
+    <a [routerLink]="['/']">
+        <header>
+            <img class='brand-logo' src='/assets/logo.svg' alt='logo' >
+        </header>
+    </a>
     <section class="content">
-        <app-home></app-home>
+        <router-outlet></router-outlet>
     </section>
 </main>
 `,
-  styleUrls: ['./app.component.css'],
+    styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'homes';
+    title = 'homes';
 }
