@@ -3,3 +3,7 @@ ng generate component Home --standalone --inline-template --skip-tests
 
 // generate interface 
 ng generate interface housinglocation
+
+
+// generate service 
+ng generate service housing --skip-tests

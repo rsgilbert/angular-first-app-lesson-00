@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { HousingLocation } from '../housinglocation';
+import { HousingService } from '../housing.service';
 
 @Component({
     selector: 'app-home',
@@ -16,6 +17,7 @@ import { HousingLocation } from '../housinglocation';
 </section>
 <section class="results">
     <app-housing-location
+        *ngFor="let housingLocation of housingLocationList"
         [housingLocation]="housingLocation"    
     >
     </app-housing-location>
@@ -24,14 +26,11 @@ import { HousingLocation } from '../housinglocation';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-    housingLocation: HousingLocation = {
-        id: 1000,
-        name: 'Nsambya Gardens',
-        city: 'Kampala city',
-        state: 'Central Uganda',
-        photo: 'assets/pillars.png',
-        availableUnits: 10,
-        wifi: true,
-        laundry: false
+    housingService: HousingService = inject(HousingService)
+    housingLocationList: HousingLocation[] = []
+
+    constructor() {
+        this.housingLocationList = this.housingService.getAllHousingLocations()
     }
+
 }
