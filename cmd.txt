@@ -1,0 +1,2 @@
+// generate component 
+ng generate component Home --standalone --inline-template --skip-te
