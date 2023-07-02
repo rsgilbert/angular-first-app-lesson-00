@@ -16,6 +16,10 @@ export class HousingService {
     return this.housingLocationList.find(loc => loc.id === id)
   }
 
+  submitApplication(firstName: string, lastName: string, email: string) {
+    console.log(`home application received ${firstName}, ${lastName}, ${email}`)
+  }
+
 
   housingLocationList: HousingLocation[] = [
     {
